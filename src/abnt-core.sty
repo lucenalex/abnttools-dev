@@ -1,0 +1,84 @@
+%===============================================================================
+% abnt-core.sty - Módulo Core do ABNT Tools
+%
+% Copyright (C) 2023 by Alexsandro Lucena Mota
+%
+% Este arquivo é parte do projeto abnttools.
+% Ele pode ser distribuído e/ou modificado sob as
+% condições da LaTeX Project Public License (LPPL), v1.3c ou posterior.
+%
+%===============================================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{abnt-core}[2023/09/16 v0.1.0 ABNT Tools - Core functionalities]
+
+%-------------------------------------------------------------------------------
+% 1. Carregamento de Pacotes Fundamentais
+%-------------------------------------------------------------------------------
+\RequirePackage{etoolbox}     % Ferramentas avançadas para programação de macros
+\RequirePackage{iftex}        % Para detectar o engine de compilação (pdfLaTeX, LuaLaTeX, etc.)
+\RequirePackage{pgfkeys}      % Motor para a macro \abntsetup
+\RequirePackage{geometry}     % Para controle de margens
+\RequirePackage{setspace}     % Para controle de espaçamento entrelinhas
+
+%-------------------------------------------------------------------------------
+% 2. Detecção de Engine e Configuração de Fontes
+%-------------------------------------------------------------------------------
+% Esta lógica garante compatibilidade com diferentes compiladores.
+\ifTUTeX % Verdadeiro se estiver usando XeLaTeX ou LuaLaTeX
+    \RequirePackage{fontspec}
+    % Permite que o usuário escolha a fonte no seu documento com \setmainfont,
+    % como é a prática moderna.
+\else % Falso, então estamos usando pdfLaTeX
+    \RequirePackage[T1]{fontenc}
+    \RequirePackage[utf8]{inputenc}
+    % Carrega a fonte Latin Modern, uma alternativa de alta qualidade à Computer Modern.
+    \RequirePackage{lmodern}
+\fi
+
+%-------------------------------------------------------------------------------
+% 3. Configuração de Layout Padrão (NBR 14724)
+%-------------------------------------------------------------------------------
+% Define as margens padrão para trabalhos acadêmicos.
+\geometry{
+    a4paper,
+    left=3cm,
+    top=3cm,
+    right=2cm,
+    bottom=2cm,
+    twoside % Habilita o modo frente e verso
+}
+
+% Define o espaçamento padrão como 1,5.
+\onehalfspacing
+
+%-------------------------------------------------------------------------------
+% 4. Implementação da Macro de Configuração \abntsetup
+%-------------------------------------------------------------------------------
+% O código dentro de \makeatletter e \makeatother pode usar o caractere '@'
+% em nomes de macros, o que é uma convenção para código interno de pacotes.
+\makeatletter
+
+% Define o "caminho" base para as chaves do nosso pacote.
+\pgfkeys{
+    /abnttools/.is family, /abnttools,
+    % Define as chaves que o usuário poderá configurar.
+    % A ação '.store in' armazena o valor fornecido pelo usuário em uma macro interna.
+    titulo/.store in = \@abntTitulo,
+    subtitulo/.store in = \@abntSubtitulo,
+    autor/.store in = \@abntAutor,
+    instituicao/.store in = \@abntInstituicao,
+    orientador/.store in = \@abntOrientador,
+    coorientador/.store in = \@abntCoorientador,
+    natureza/.store in = \@abntNatureza,
+    local/.store in = \@abntLocal,
+    data/.store in = \@abntData,
+    % Podemos adicionar mais chaves aqui no futuro.
+}
+
+% Define a macro de interface que o usuário irá chamar em seu documento.
+\newcommand{\abntsetup}[1]{\pgfkeys{/abnttools, #1}}
+
+\makeatother
+
+\endinput
+% Fim do arquivo abnt-core.sty

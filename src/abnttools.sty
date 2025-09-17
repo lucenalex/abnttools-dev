@@ -1,0 +1,69 @@
+%===============================================================================
+% abnttools.sty - Pacote principal do ABNT Tools
+%
+% Copyright (C) 2023 by Alexsandro Lucena Mota
+%
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License (LPPL), either version 1.3c
+% of this license or (at your option) any later version.
+% The latest version of this license is in:
+%
+%    http://www.latex-project.org/lppl.txt
+%
+% and version 1.3c or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+% The Current Maintainer of this work is Alexsandro Lucena Mota.
+%
+% Contact e-mail: lucenalexster@gmail.com
+% Project repository: https://github.com/lucenalex/abnttools-dev
+%
+%===============================================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{abnttools}[2025/09/16 v0.1.0 ABNT Tools for LaTeX Documents]
+
+%-------------------------------------------------------------------------------
+% 1. Processamento de Opções
+%-------------------------------------------------------------------------------
+% Usamos 'kvoptions' para um tratamento robusto de opções chave-valor.
+\RequirePackage{kvoptions}
+
+% Define a opção 'preset', que o usuário usará para especificar o tipo de
+% documento (ex: academic, article). 'academic' é o valor padrão.
+\DeclareStringOption[academic]{preset}
+
+% Processa as opções que foram declaradas acima.
+\ProcessKeyvalOptions*
+
+%-------------------------------------------------------------------------------
+% 2. Carregamento dos Módulos com base no Preset
+%-------------------------------------------------------------------------------
+% Informa ao log do LaTeX qual preset está sendo carregado. Útil para depuração.
+\PackageInfo{abnttools}{Loading preset '\KV@abnttools@preset'}
+
+% Tenta carregar um arquivo de configuração correspondente ao preset escolhido.
+% Ex: Se o usuário usar [preset=article], este comando tentará carregar o
+% arquivo 'abnt-preset-article.cfg'.
+% O comando \InputIfFileExists é seguro e não gera erro se o arquivo não for
+% encontrado, permitindo que o usuário crie seus próprios presets.
+\InputIfFileExists{abnt-preset-\KV@abnttools@preset.cfg}{
+    % Código a ser executado se o arquivo de preset for encontrado.
+    % Deixamos em branco, pois o próprio arquivo fará o trabalho.
+}{
+    % Mensagem de erro se o preset não for encontrado.
+    \PackageError{abnttools}{Preset '\KV@abnttools@preset' not found.}{%
+        Ensure that a file named 'abnt-preset-\KV@abnttools@preset.cfg' exists.%
+    }
+}
+
+%-------------------------------------------------------------------------------
+% 3. Carregamento do Módulo Core (Sempre Necessário)
+%-------------------------------------------------------------------------------
+% O módulo 'abnt-core' contém as configurações fundamentais (margens, fontes,
+% a macro \abntsetup, etc.) e deve ser carregado sempre, independentemente
+% do preset.
+\RequirePackage{abnt-core}
+
+\endinput
+% Fim do arquivo abnttools.sty

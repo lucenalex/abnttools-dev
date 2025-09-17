@@ -1,0 +1,30 @@
+\documentclass[12pt, a4paper]{scrbook}
+
+% Para que o LaTeX encontre os pacotes na pasta 'src'
+\usepackage{../src/abnttools}
+
+% Carrega um pacote para gerar texto de exemplo
+\usepackage{lipsum}
+
+\abntsetup{
+    titulo = {Teste Inicial do Pacote abnttools},
+    autor  = {Alexsandro Lucena Mota}
+}
+
+\title{\@abntTitulo}
+\author{\@abntAutor}
+
+\begin{document}
+
+\maketitle % Apenas para teste, ainda não redefinimos
+
+\chapter{Testando o Módulo Core}
+
+Este documento está testando as configurações básicas do pacote \texttt{abnttools}.
+O espaçamento entrelinhas deve ser de 1,5, e as margens devem seguir o padrão
+da ABNT para trabalhos acadêmicos (esquerda e superior de 3 cm, direita e inferior
+de 2 cm).
+
+\lipsum[1-5] % Gera 5 parágrafos de texto de exemplo
+
+\end{document}
