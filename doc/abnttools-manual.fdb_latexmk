@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1758121531.16766 "d:/_1_family/_0_Alex/9_Academicos/6_LaTeX_Projects/23_abnttools/abnttools-dev/doc/abnttools-manual.tex" "abnttools-manual.pdf" "abnttools-manual" 1758121534.48324 2
+["pdflatex"] 1758122769.41499 "d:/_1_family/_0_Alex/9_Academicos/6_LaTeX_Projects/23_abnttools/abnttools-dev/doc/abnttools-manual.tex" "abnttools-manual.pdf" "abnttools-manual" 1758122771.2792 2
   "../src/abnttools.sty" 1758119898 3181 b8aa38a45fad87bc74e3ebd4a7f8ac11 ""
   "C:/Users/lucen/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1744373378 12036089 cf2b1ff2303160a72b14f4623eb7b740 ""
   "C:/Users/lucen/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmr12.tfm" 1136765053 1288 655e228510b4c2a1abe905c368440826 ""
@@ -19,7 +19,7 @@
   "C:/Users/lucen/AppData/Local/Programs/MiKTeX/tex/latex/kvoptions/kvoptions.sty" 1656236481 22555 6d8e155cfef6d82c3d5c742fea7c992e ""
   "C:/Users/lucen/AppData/Local/Programs/MiKTeX/tex/latex/kvsetkeys/kvsetkeys.sty" 1665066333 13815 760b0c02f691ea230f5359c4e1de23a7 ""
   "abnt-core.sty" 0 -1 0 ""
-  "abnttools-manual.aux" 1758121523 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "abnttools-manual.aux" 1758122761 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
   "abnttools-manual.tex" 1758121381 810 18675574a5c5b67aa9a9bd8f07a3bcf0 ""
   "d:/_1_family/_0_Alex/9_Academicos/6_LaTeX_Projects/23_abnttools/abnttools-dev/doc/abnttools-manual.tex" 1758121381 810 18675574a5c5b67aa9a9bd8f07a3bcf0 ""
   (generated)
