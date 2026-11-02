@@ -1,0 +1,27 @@
+# Build temporário do LaTeX; não exclui arquivos já rastreados.
+*.aux
+*.log
+*.lof
+*.lot
+*.toc
+*.out
+*.bcf
+*.blg
+*.bbl
+*.run.xml
+*.synctex
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.nav
+*.snm
+*.vrb
+*.xdv
+*.dvi
+
+# Backups locais de editores
+*.swp
+*~
+*.bak
+
+# Não ignorar: .sty, .cls, .tex, .bib, .def, .cfg, fontes e imagens originais.
